@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 author = {
@@ -14,10 +14,11 @@ author = {
 
 
 def home(request):
-    text="""<h1>"Изучаем django"</h1>
-                <strong>Автор<strong>: <i>Севастьянов В.В.</i>
-         """
-    return HttpResponse(text)
+    # text="""<h1>"Изучаем django"</h1>
+    #             <strong>Автор<strong>: <i>Севастьянов В.В.</i>
+    #      """
+    # return HttpResponse(text)
+    return render(request, "index.html")
 
 def about(request):
     result = f"""
