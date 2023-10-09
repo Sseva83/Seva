@@ -41,18 +41,25 @@ def about(request):
     """
     return HttpResponse(result)
 
-def get_item(request,item_id):
-    # """По указанному id возвращает имя и количество"""
-    # for item in items:
-    #     if item["id"]==id:
-    #         result= f"""
-    #         <h2>Имя:{item["name"]}</h2>
-    #         <p>Количество:{item["quantity"]}</p>
-    # """
-    #     return HttpResponse(result)
-    # return HttpResponseNotFound(f'Item with id={id} not found')
+# def get_item(request,item_id):
+#     # """По указанному id возвращает имя и количество"""
+#     # for item in items:
+#     #     if item["id"]==id:
+#     #         result= f"""
+#     #         <h2>Имя:{item["name"]}</h2>
+#     #         <p>Количество:{item["quantity"]}</p>
+#     # """
+#     #     return HttpResponse(result)
+#     # return HttpResponseNotFound(f'Item with id={id} not found')
 
-    context={
-        "items":items
+#     context={
+#         "items":items
+#     }
+#     return render(request,"item-list.html", context)
+
+def items_list(request):
+    items = Item.objects.all()
+    context = {
+        "items": items
     }
-    return render(request,"item-list.html", context)
+    return render(request, "items-list.html", context)
